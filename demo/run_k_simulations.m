@@ -1,6 +1,6 @@
 % Probabilistically run many simulations
 function [realSelectedCenters,f_val] = run_k_simulations(p_success,sequence,n_trials,epochs,points,centers,randomDom,radii,k)
-    f_val = zeros(epochs,1); realSelectedCenters = zeros(16,1);%zeros(length(centers),1);
+    f_val = zeros(epochs,1); realSelectedCenters = zeros(length(centers),1);
     for epoch = 1:epochs
         communication = BinomialProcess(p_success,n_trials);
         [realSelectedCenters_idx, f_val_idx] = greedy_algorithm(points,centers,randomDom,radii,sequence,communication,k);
